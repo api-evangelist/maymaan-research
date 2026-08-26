@@ -64,5 +64,20 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-MayMaan Research is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+MayMaan Research is a clean-energy engineering company that redesigns the internal combustion
+engine around its patented AquaStroke platform — a piston engine that runs on a blend of roughly
+70% water and 30% bio-alcohol (ethanol or methanol) rather than gasoline or diesel. It builds
+modular generator sets and powertrains from 35 kW (A35) through the AV2 to multi-megawatt
+installations, positioned as drop-in replacements for diesel gensets across power generation,
+EV charging, data centers, telecom, marine, construction, agriculture and defense. The company
+is headquartered in Hollywood, Florida with a European office in Paris, and raised a $30 million
+Series A led by WAVE Equity Partners.
+
+- https://maymaan.com/
+
+**No public API surface.** MayMaan Research is a hardware manufacturer. As of 2026-08-25 it
+publishes no API, developer portal, SDK, CLI or machine-readable interface description. Contract
+discovery was run against its only host and every candidate path returned a genuine HTTP 404 —
+`/openapi.json`, `/swagger.json`, `/api-docs`, `/graphql`, `/llms.txt` and all `/.well-known/`
+paths — verified against a control probe showing the host is not a soft-404 catch-all. See
+`x-coverage` in `apis.yml`.

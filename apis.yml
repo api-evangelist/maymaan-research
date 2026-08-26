@@ -1,7 +1,20 @@
 aid: maymaan-research
 name: MayMaan Research
-description: 'MayMaan Research is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  MayMaan Research is a clean-energy engineering company that redesigns the internal
+  combustion engine around its patented AquaStroke platform, a piston engine that runs
+  on a blend of roughly 70% water and 30% bio-alcohol (ethanol or methanol) instead of
+  gasoline or diesel. The company builds modular generator sets and powertrains that
+  scale from a 35 kW unit (A35) through the AV2 to multi-megawatt installations, and it
+  positions them as drop-in replacements for diesel gensets in power generation, EV
+  charging infrastructure, data centers, telecommunications, marine, construction,
+  agriculture, defense and off-grid deployments, with near-zero NOx, SOx, CO2 and
+  particulate output. MayMaan is headquartered in Hollywood, Florida with a European
+  office in Paris, holds engine and fuel-system patents internationally, and raised a
+  $30 million Series A led by WAVE Equity Partners. It is a hardware manufacturer: as of
+  this profile it publishes no public API, developer portal, SDK or machine-readable
+  interface of any kind.
+image: https://maymaan.b-cdn.net/assets/frontend/img/footer-logo.webp
 url: https://raw.githubusercontent.com/api-evangelist/maymaan-research/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +25,15 @@ created: '2026-08-25'
 modified: '2026-08-25'
 tags:
 - Company
+- Energy
+- Clean Energy
+- Power Generation
+- Engines
+- Manufacturing
+- Hardware
+- Sustainability
+- Data Centers
+- Automotive
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +41,47 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/maymaan-research-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://maymaan.com/
+- type: Support
+  url: https://maymaan.com/contact-us
+- type: Blog
+  url: https://maymaan.com/stories
+- type: Press
+  url: https://maymaan.com/press
+- type: TermsOfService
+  url: https://maymaan.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://maymaan.com/privacy-policy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/maymaan-research-llc/
+- type: LLMsTxt
+  url: llms/maymaan-research-llms.txt
+x-enrichment:
+  date: '2026-08-25'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    MayMaan Research manufactures water-and-bio-alcohol internal combustion engines and
+    generator sets (the AquaStroke A35 and AV2); its entire public site is product
+    marketing plus a quote-request form, and the apex host returns a genuine 404 for
+    /openapi.json, /swagger.json, /api-docs, /graphql, /llms.txt and every
+    /.well-known/ path, with a control probe confirming it is not a soft-404 catch-all.
+  evidence:
+  - url: https://maymaan.com/openapi.json
+    status: 404
+  - url: https://maymaan.com/graphql
+    status: 404
+  - url: https://maymaan.com/.well-known/agent-card.json
+    status: 404
+  - url: https://maymaan.com/this-path-should-not-exist-xyz123
+    status: 404
+  - url: https://maymaan.com/
+    status: 200
+  checked: '2026-08-25'

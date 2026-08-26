@@ -1,0 +1,35 @@
+generated: '2026-08-25'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: maymaan.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 29 07:07:46 2026 GMT
+  hsts: false
+domains:
+- domain: maymaan.com
+  dnssec: false
+  caa:
+  - 0 issuewild "sectigo.com"
+  - 0 issuewild "ssl.com"
+  - 0 issue "comodoca.com"
+  - 0 issue "digicert.com; cansignhttpexchanges=yes"
+  - 0 issue "globalsign.com"
+  - 0 issue "letsencrypt.org"
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+notes:
+- >-
+  The TLS certificate served for maymaan.com carries a single subjectAltName
+  (DNS:maymaan.com) and does NOT cover www.maymaan.com. A request to
+  https://www.maymaan.com/ fails certificate verification outright
+  ("no alternative certificate subject name matches target host name"), so the
+  www hostname is unreachable over HTTPS. Observed 2026-08-25 via
+  `openssl s_client -servername www.maymaan.com`. The apex host is healthy
+  (TLSv1.3, valid cert). All pointers in apis.yml therefore use the apex host.
+- >-
+  No HSTS header is served on the apex host, and the registrable domain has no
+  DNSSEC. SPF and DMARC are both published (DMARC p=quarantine), and CAA records
+  are set, restricting issuance to six named CAs.

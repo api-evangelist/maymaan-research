@@ -1,0 +1,45 @@
+generated: '2026-08-25'
+method: probed
+source: >-
+  Live unauthenticated GETs against the only host MayMaan Research operates
+  (https://maymaan.com), 2026-08-25, with a browser User-Agent.
+hit_count: 0
+hosts:
+- host: https://maymaan.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+soft_404_control:
+  path: /this-path-should-not-exist-xyz123
+  status: 404
+  bytes: 14547
+  note: >-
+    Control probe returns a genuine HTTP 404 with a 14,547-byte branded error
+    page, identical in size to every /.well-known/* miss above. The host is NOT
+    an SPA catch-all answering 200 for arbitrary paths, so these 404s are
+    trustworthy negatives rather than false absences.
+note: >-
+  Every /.well-known/ path probed returned 404. No WellKnown, SecurityTxt or
+  APICatalog pointer is emitted in apis.yml, because MayMaan Research serves no
+  document at any of these locations — this file records a verified absence, not
+  a presence. robots.txt is served (HTTP 200, "User-agent: * / Disallow:"), so
+  nothing about this probe was blocked by crawl policy.
