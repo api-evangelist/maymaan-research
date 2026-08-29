@@ -14,6 +14,17 @@ description: >-
   $30 million Series A led by WAVE Equity Partners. It is a hardware manufacturer: as of
   this profile it publishes no public API, developer portal, SDK or machine-readable
   interface of any kind.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://maymaan.b-cdn.net/assets/frontend/img/footer-logo.webp
 url: https://raw.githubusercontent.com/api-evangelist/maymaan-research/refs/heads/main/apis.yml
 x-type: company
